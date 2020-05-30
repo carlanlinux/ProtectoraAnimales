@@ -1,38 +1,30 @@
-<?php //Cargamos la página de inicializar que está en la carpeta privada
-include_once ('controller/AdminController.php');
-?>
-<nav>
-    <?php
-    //mostramos el botón de página anterior, pero no si
-    //estamos en la primera página
+<?php
+//Me creo objeto admin Auxiliar para las queries
+$tipoClase = new Admin();
+include_once ('controller/listController.php');
 
-    if($pagina < 1) echo '<a href="?pagina=' . ($pagina - 1) . '">&lt;</a>';
-    echo "Página $pagina";
-    if (!$pagina == $numPaginas) echo '<a href="?pagina=' . ($pagina + 1) . '">&gt;</a>';
-    ?>
-</nav>
-<div id="contenedor">
-    <div id="tabla">
-        <table>
-            <?php
-            $inicio=($pagina-1)*PAGINADO+1;
-            $fin=$inicio+PAGINADO-1;
-            //primera fila
-            echo "<tr>";
-            for($i=1;$i<=NUMCOLUMNAS;$i++){
-                echo "<th>Administrador</th>";
-                echo "<th></th>";
-                echo "<th></th>";
+?>
+
+<script type="text/javascript">
+    function listarElementos(pagina) {
+        var objAJAX = new XMLHttpRequest();
+        /*utilizamos el método GET y pasamos al script como parámetro
+         * el núemro de página que la función ha recibido
+         */
+        objAJAX.open("GET", ".?pagina=" + pagina, true);
+        objAJAX.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        objAJAX.onreadystatechange = function () {
+            if (objAJAX.readyState === 4) {
+                /* cargamos la respuesta recibida en el div */
+                document.getElementById("datos").innerHTML = objAJAX.responseText;
             }
-            echo "</tr>";
-            //resto de filas
-            echo "<tr>";
-            for($i=$inicio;$i<=$fin && $i<=sizeof($adminsList);$i++){
-                foreach ($adminsList as $admin)
-                echo "<td class='codigo'>$admin->username</td>";
-                if($i%NUMCOLUMNAS==0) echo "</tr>";
-            }
-            echo "</tr>";
-            ?>
-        </table>
-    </div>
+        }
+        objAJAX.send();
+
+    }
+
+</script>
+
+<div id="datos">
+
+</div>

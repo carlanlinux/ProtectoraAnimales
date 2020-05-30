@@ -23,7 +23,7 @@ if (isset($_POST['username'])) {
         $password = md5($password);
     }
     //Creamos nuevo usuario admiministrador que nos servirá para acceder a los métodos y hacer el login
-    $admin = new Admin($username, $password);
+    $admin = new Admin();
 
     //Lllamamos a método para buscar usuario por username. Devuelve un objeto de la clase Admin
     $admin = $admin->obtenerPorUsername($username);

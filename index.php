@@ -1,11 +1,16 @@
 <?php
+require ('private/initialize.php');
+
+/*require_once ('model/Admin.class.php');
+require_once ('model/Adopcion.class.php');
+require_once ('model/Animal.class.php');
+require_once ('model/Usuario.class.php');*/
+
+
 //Abrimos la sesión y guardamos el usuario comprobando que la sesión no esté ha abierta
 if (session_status() == PHP_SESSION_NONE) session_start();
 
-require_once ('model/Admin.class.php');
-require_once ('model/Adopcion.class.php');
-require_once ('model/Animal.class.php');
-require_once ('model/Usuario.class.php');
+
 require_once ('controller/loginController.php');
 
 require_once ('shared/header.php');

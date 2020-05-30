@@ -10,12 +10,11 @@ class Admin extends Crud
     private $conexion;
     const TABLA = "admins";
 
-    public function __construct ($id, $password)
+    public function __construct ($id = null, $password = null)
     {
         $this->conexion = parent::__construct(self::TABLA);
         $this->id = $id;
         $this->password = $password;
-        //$this->crear();
     }
 
     public function __set ($propiedad, $valor)
@@ -140,6 +139,7 @@ class Admin extends Crud
             return $error = $e->getMessage();
         }
     }
+
 
 
 }
