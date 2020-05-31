@@ -41,7 +41,7 @@ if (isset($_POST['username'])) {
     } else {
         //Me creo el objeto conlos datos
         $admin = new Admin($username,$password);
-        $admin->actualizar([$username,$password]);
+        $admin->actualizar();
 
     }
 }

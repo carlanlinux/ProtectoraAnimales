@@ -57,9 +57,9 @@ class Admin extends Crud
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . " row inserted";
+                echo "<h6 class='text-success mt-3'>" . $affected . " row inserted</h6>";
             } else {
-                echo "Error al introducir nuevo Administrador";
+                echo "<h6 class='text-danger mt-3'>Error al introducir nuevo Administrador</h6>";
             }
         } catch (Exception $e) {
             return $error = $e->getMessage();
@@ -89,9 +89,9 @@ class Admin extends Crud
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . "Administrador {$this->id} mofidicado con éxito";
+                echo "<h6 class='text-success mt-3'>" . $affected . "Administrador {$this->id} mofidicado con éxito" . "<h6>";
             } else {
-                echo "Error al modificar Administrador";
+                echo "<h6 class='text-success mt-3'>Error al modificar Administrador</h6>";
             }
         } catch (Exception $e) {
             return $error = $e->getMessage();

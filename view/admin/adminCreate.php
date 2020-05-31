@@ -4,7 +4,7 @@ include_once ('../../shared/header.php');
 include_once ('../../model/Admin.class.php');
 //Me creo objeto admin Auxiliar para las queries
 
-include_once ('../../controller/createController.php');
+include_once('../../controller/admin/createAdminController.php');
 
 ?>
 <div class="container mt-3">
@@ -26,7 +26,7 @@ include_once ('../../controller/createController.php');
             <div class="form-group">
                 <label class="form-control-label" for="confirmPassword">Repetir contraseña</label>
                 <input  class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Repetir Contraseña"/>
-                <small class="form-text text-muted" id="emailHelp">Las contraseñas han de ser iguales</small>
+                <small class="form-text text-muted">Las contraseñas han de ser iguales</small>
             </div>
         </fieldset>
         <div class="btn-group mb-3">

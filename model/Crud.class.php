@@ -117,9 +117,9 @@ abstract class Crud extends Conexion
             $affected = $stmt->execute();
             //Devolvemos el número de filas afectadas
             if ($affected) {
-                echo $affected . ' records deleted.';
+                echo "<h6 class='text-success mt-3'>" . $affected . " Elemento borrado" . "<h6>";
             } else {
-                echo "Error en el borrado de datos";
+                echo "<h6 class='text-success mt-3'>Error al elimiar el registro.</h6>";
             }
         } catch (Exception $e) {
             echo $error = $e->getMessage();

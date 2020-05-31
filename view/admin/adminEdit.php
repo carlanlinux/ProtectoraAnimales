@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 include_once ('../../shared/header.php');
-include_once ('../../controller/editController.php');
+include_once('../../controller/admin/editAdminController.php');
 //Me creo objeto admin Auxiliar para las queries
 ?>
     <div class="container mt-3">

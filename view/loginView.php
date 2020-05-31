@@ -19,12 +19,14 @@ require ('../controller/loginController.php');
         <li>
             <div class="titulo">
                 <h2 id="titulo">Iniciar sesión - Protectora animales</h2>
+
             </div>
         </li>
         <li>
             <label for="usuario">Nombre</label>
             <input type="text" name="username" id="usuario" title="Nombre de usuario" <?php if (!isset($errorPass)) echo " autofocus " ?>
                    placeholder="Nombre de usuario" <?php if (isset($errorPass)) echo " value={$errorPass}" ?> />
+            <small class="form-text text-muted">Usuario: Admin | Contraseña: Admin </small>
         </li>
         <li>
             <label for="password">Contraseña</label>

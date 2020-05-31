@@ -9,12 +9,13 @@ require ('../private/initialize.php');
 
 include_once ('../shared/header.php');
 ?>
-<div id="myform">
+
+<div class="container">
     <ol>
-    <li><a href="<?php echo VIEW_PATH . "/adopcion/adopcionView.php"?>  ">Adopciones</a></li>
+    <li><a href="<?php echo VIEW_PATH . "/adopcion/animalView.php"?>  ">Adopciones</a></li>
     <li><a href="<?php echo VIEW_PATH . "/admin/adminView.php"?> ">Administradores</a></li>
     <li><a href="<?php echo VIEW_PATH . "/usuario/usuariosView.php"?> ">Usuarios</a></li>
-    <li><a href="<?php echo VIEW_PATH . "/animal/adopcionView.php"?> ">Animales</a></li>
+    <li><a href="<?php echo VIEW_PATH . "/animal/animalView.php"?> ">Animales</a></li>
     </ol>
 </div>
 
