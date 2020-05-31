@@ -1,10 +1,12 @@
-<?php require ('../private/initialize.php');?>
+<?php require_once ('../private/initialize.php');
+require ('../controller/loginController.php');
+;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión - Protectora Animales</title>
-    <link rel="stylesheet" href="./shared/styles/mystyle.css">
+    <link rel="stylesheet" href="../shared/styles/mystyle.css">
 
 </head>
 <body>

@@ -1,6 +1,4 @@
 <?php
-include_once ('./model/Admin.class.php');
-
 
 if (isset($_POST['username'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -33,10 +31,9 @@ if (isset($_POST['username'])) {
             if (session_status() == PHP_SESSION_NONE)
                 session_start();
             $_SESSION['username'] = $username;
-            header("Location: " . "./view/mainView.php" );
+            //Redirigimos a la vista principal
+            redirect_to(url_for('/view/mainView.php'));
             exit;
-
-
         } else{
             $error = "Contrasñea incorrecta, intentelo de nuevo";
             //Utilizmos esta variable para dirigir el foco al campo contraseña y mantener el usuario en el campo usuario

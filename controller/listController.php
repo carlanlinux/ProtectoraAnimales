@@ -46,7 +46,7 @@ if (sizeof($registros) > 0) {
 
     foreach ($registros as $registro) {
         $item = $registro->id;
-        $editar = "<a class='btn btn-primary' href='adminEdit.php?item=". $item . "'>Editar</a>";
+        $editar = "<a class='btn btn-dark' href='adminEdit.php?item=". $item . "'>Editar</a>";
         $borrar = "<a class='btn btn-danger' href='?removeItem=". $item . "'>Borrar</a>";
         $htmlDatos .= "<tr><td> " . $item . "</td><td>" . $editar ."</td><td> ". $borrar . "</td></tr>";
    }
@@ -69,24 +69,24 @@ if (sizeof($registros) > 0) {
      * se pulse el emlace pasándole como parámetro el número de página que debe mostrar
      */
     if ($nPagina == 1)
-        $html .= "<li class='page-item disabled'><a class='page-link' href='#'onclick='listarElementos(1);return false;'>&laquo;</a></li>";
+        $html .= "<li class='page-item disabled text-dark'><a class='page-link text-dark' href='#'onclick='listarElementos(1);return false;'>&laquo;</a></li>";
     else
-        $html .= "<li class='page-item'><a class='page-link' href='#'onclick='listarElementos(1);return false;'>&laquo;</a></li>";
+        $html .= "<li class='page-item text-dark'><a class='page-link text-dark' href='#'onclick='listarElementos(1);return false;'>&laquo;</a></li>";
     for ($i = 1; $i <= $totalPaginas; $i++) {
         //si coincide es la página actual y debe aparecer resaltada con la clase active.
         if ($nPagina == $i) {
-            $html .= "<li class='page-item active'><a class='page-link' href='#' onclick='listarElementos(" . $i . ");return false;'>" . $i . "</a></li>";
+            $html .= "<li class='page-item active text-dark'><a class='page-link text-dark' href='#' onclick='listarElementos(" . $i . ");return false;'>" . $i . "</a></li>";
         } else {
-            $html .= "<li class='page-item'><a class='page-link' href='#' onclick='listarElementos(" . $i . ");return false;'>" . $i . "</a></li>";
+            $html .= "<li class='page-item text-dark'><a class='page-link text-dark' href='#' onclick='listarElementos(" . $i . ");return false;'>" . $i . "</a></li>";
         }
 
     }
     if ($nPagina == $totalPaginas) {
         /* Si es la última página el enlace >> debe aparecer deshabiliado
          */
-        $html .= "<li class='page-item disabled'><a class='page-link' href='#' onclick='listarElementos(" . $totalPaginas . ");return false;'>&raquo</a></li>";
+        $html .= "<li class='page-item disabled text-dark'><a class='page-link' href='#' onclick='listarElementos(" . $totalPaginas . ");return false;'>&raquo</a></li>";
     } else {
-        $html .= "<li class='page-item'><a class='page-link' href='#' onclick='listarElementos(" . $totalPaginas . ");return false;'>&raquo</a></li>";
+        $html .= "<li class='page-item text-dark'><a class='page-link text-dark' href='#' onclick='listarElementos(" . $totalPaginas . ");return false;'>&raquo</a></li>";
     }
     $html .= "</ul></nav></section>";
 } else {

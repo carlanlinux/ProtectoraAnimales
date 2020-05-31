@@ -1,9 +1,9 @@
 <?php
-
-include_once ('../../model/Admin.class.php');
+require_once('../../private/initialize.php');
+/*include_once ('../../model/Admin.class.php');
 include_once ('../../model/Adopcion.class.php');
 include_once ('../../model/Animal.class.php');
-include_once ('../../model/Usuario.class.php');
+include_once ('../../model/Usuario.class.php');*/
 //Me creo objeto admin Auxiliar para las queries
 if (!isset($tipoClase)) $tipoClase = new Admin();
 
@@ -31,12 +31,12 @@ if (!isset($tipoClase)) $tipoClase = new Admin();
 <div class="container" id="datos">
     <?php include_once ('../../shared/headerAdmins.php'); ?>
     <!--    Creamos los botones del control del paginado-->
-        <div class="container">
-            <div class="btn-group d-sm-inline-block ">
-                <a class="btn btn-dark p-1 m-0" href="mainView.php">Atrás</a>
+        <div class="container mt-3">
+            <div class="btn-group mb-3">
+                <a class="btn btn-dark p-1 m-0" href="<?php echo VIEW_PATH . "/mainView.php"?>">Atrás</a>
                 <a class="btn btn-dark p-1 m-0" href="adminCreate.php">Crear Administrador</a>
-                <h3>Listado paginado</h3>
             </div>
+            <h3>Listado paginado de Administradores</h3>
         </div>
     <?php include_once ('../../controller/listController.php');?>
     <?php include_once ('../../shared/footer.php'); ?>

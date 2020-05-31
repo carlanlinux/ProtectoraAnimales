@@ -9,9 +9,9 @@
   define("PRIVATE_PATH", dirname(__FILE__));
   define("PROJECT_PATH", dirname(PRIVATE_PATH));
   define("PUBLIC_PATH", PROJECT_PATH . '/ProtectoraAnimales');
-  define("SHARED_PATH", PROJECT_PATH . '/shared');
-  define("MODEL_PATH", PROJECT_PATH . '/model');
-  define("CONTROLLER_PATH", PROJECT_PATH . '/controller');
+
+
+
 
   // Asignamos la raiz de la URL del sitio a la constante PHP
   // * No hay que incluir el dominio
@@ -23,6 +23,10 @@
   $public_end = strpos($_SERVER['SCRIPT_NAME'], '/ProtectoraAnimales') + 19;
   $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
   define("WWW_ROOT", $doc_root);
+define("VIEW_PATH", WWW_ROOT . '/view');
+define("CONTROLLER_PATH", WWW_ROOT . '/controller');
+define("SHARED_PATH", WWW_ROOT . '/shared');
+define("MODEL_PATH", WWW_ROOT . '/model');
 
 
 // require(CONTROLLER_PATH . '/loginController.php');

@@ -1,4 +1,3 @@
-<?php// require ('../private/initialize.php');?>
 <!doctype html>
 <head>
     <meta charset="utf-8">
@@ -37,16 +36,17 @@
                 <img src="../shared/images/wisdompetlogo.svg" style="width: 40px" alt="wisdom pet logo">
             </a>
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="">Home</a>
-                <a class="nav-item nav-link" href="<?php echo url_for('/view/adopcion/adopcionView.php');?>">Adopciones</a>
-                <a class="nav-item nav-link" href="<?php echo url_for('/view/admins/adminsView.php');?>">Administradores</a>
-                <a class="nav-item nav-link" href="<?php echo url_for('/view/usuarios/usuarioView.php');?>.">Usuarios</a>
-                <a class="nav-item nav-link" href="<?php echo url_for('/view/animales/animalesView.php');?>.>Animales</a>
+                <a class="nav-item nav-link active" href="<?php echo WWW_ROOT . "/index.php"?>"">Home</a>
+                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/adopcion/adopcionView.php"?>">Adopciones</a>
+                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/admin/adminView.php"?>">Administradores</a>
+                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/usuario/usuarioView.php"?>">Usuarios</a>
+                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/animal/animalView.php"?>" >Animales</a>
             </div>
             <span class="navbar-text d-xl-inline-block"><?php if (isset($_SESSION['username'])) {
-                    echo 'Bienvenido '. $_SESSION["username"] . '. | <a href="../logout.php"' . " </a> Cerrar Sesión</a>";
-                }
-                ?></span>
+
+                echo "Bienvenido ". $_SESSION['username'] . ". | <a href=" . WWW_ROOT . "/logout.php" . "> Cerrar Sesión</a>";
+                }?>
+                </span>
             </div>
     </nav>
 </header>
