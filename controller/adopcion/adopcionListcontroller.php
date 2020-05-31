@@ -46,7 +46,7 @@ if (sizeof($registros) > 0) {
 
     foreach ($registros as $registro) {
         $item = $registro->id;
-        $editar = "<a class='btn btn-dark mr-1' href='animalEdit.php?item=". $item . "'>Editar</a>";
+        $editar = "<a class='btn btn-dark mr-1' href='adopcionEdit.php?item=". $item . "'>Editar</a>";
         $borrar = "<a class='btn btn-danger' href='?removeItem=". $item . "'>Borrar</a>";
         $htmlDatos .= "<tr><td> " . $item . "</td><td> $registro->idAnimal </td><td> $registro->idUsuario</td><td>$registro->fecha</td>
             <td> $registro->razon </td><td>" . $editar ."</td><td> ". $borrar . "</td></tr>";

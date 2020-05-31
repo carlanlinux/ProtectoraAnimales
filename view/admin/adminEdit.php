@@ -5,7 +5,7 @@ include_once('../../controller/admin/editAdminController.php');
 //Me creo objeto admin Auxiliar para las queries
 ?>
     <div class="container mt-3">
-        <h2>Edición de Administrador del sistema</h2>
+        <h2>Cambio de Contraseña Administrador del sistema</h2>
         <form  id="myform" name="login" action="" method="post">
             <fieldset class="form-group">
                 <span id="formerror" class="error"><?php if (isset($error)) echo $error?></span>
@@ -14,7 +14,7 @@ include_once('../../controller/admin/editAdminController.php');
                     <label class="form-control-label" for="usuario">Usuario</label>
                     <input class="form-control" type="text" name="username" id="usuario" title="Nombre de usuario"
                         <?php if (!isset($errorPass)) echo " autofocus " ?>
-                           placeholder="Nombre de usuario" <?php if (isset($oldUsername)) echo " value={$oldUsername}" ?> />
+                           placeholder="Nombre de usuario" <?php if (isset($oldUsername)) echo " value='{$oldUsername}'" ?> />
                 </div>
 
                 <div class="form-group">

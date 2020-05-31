@@ -14,6 +14,7 @@ class Adopcion extends Crud
 
     public function __construct ($id = null, $idAnimal = null, $idUsuario = null, $fecha = null, $razon = null) {
         $this->conexion = parent::__construct(self::TABLA);
+        $this->id = $id;
         $this->idAnimal = $idAnimal;
         $this->idUsuario = $idUsuario;
         $this->fecha = date('Y-m-d', strtotime($fecha));
@@ -83,7 +84,7 @@ class Adopcion extends Crud
 
         try {
             //Query a la base de datos para actualizar
-            $sql = "UPDATE " . self::TABLA . " SET idAnimal = :idAnimal, idUsuario = :idUsuario, fecha = :fecha, razon = :razon  WHERE id = :id LIMIT 1";
+            $sql = "UPDATE " . self::TABLA . " SET idAnimal = :idAnimal, idUsuario = :idUsuario, fecha = :fecha, razon = :razon WHERE id = :id LIMIT 1";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion->prepare($sql);
             //Bind value para calculos y expresiones

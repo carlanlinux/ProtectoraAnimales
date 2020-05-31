@@ -41,7 +41,7 @@ include_once('../../controller/adopcion/editAdopcionController.php');
                 </div>
             </fieldset>
             <div class="btn-group mb-3">
-                <input type="submit" class="btn btn-dark"  id="enviar" value="Editar Adopción">
+                <input type="submit" class="btn btn-dark"  id="enviar" value="Editar">
                 <a class="btn btn-dark"  href="adopcionView.php">Volver</a>
             </div>
         </form>

@@ -12,31 +12,31 @@ include_once('../../controller/adopcion/editAdopcionController.php');
 
                 <div class="form-group">
                     <label class="form-control-label" for="idAdopcion">ID del Animal</label>
-                    <input class="form-control" type="text" name="idAdopcion" id="idAdopcion" title="ID de la adopción" disabled
-                        <?php if (isset($idAdopcion)) echo " value={$idAdopcion}" ?>/>
+                    <input class="form-control" type="text" name="idAdopcion" id="idAdopcion" title="ID de la adopción"
+                        <?php if (isset($idAdopcion)) echo "value='{$idAdopcion}'" ?>>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="idAnimal">ID del Animal</label>
                     <input class="form-control" type="text" name="idAnimal" id="idAnimal" title="ID del animal" required
                            placeholder="ID del animal" <?php if (isset($errorPass)) echo " value={$errorPass}" ?>
-                        <?php if (isset($oldIdAnimal)) echo " value={$oldIdAnimal}" ?>/>
+                        <?php if (isset($oldIdAnimal)) echo  "value='{$oldIdAnimal}'" ?>>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" for="idUsuario">ID del Usuario</label>
                     <input  class="form-control" type="text" name="idUsuario" id="idUsuario" placeholder="ID del Usuario"
-                            required <?php if (isset($oldIdUsuario)) echo " value={$oldIdUsuario}" ?> />
+                            required <?php if (isset($oldIdUsuario)) echo "value='{$oldIdUsuario}'" ?> >
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="fecha">Fecha de adopción</label>
                     <input  class="form-control" type="date" name="fecha" id="fecha" placeholder="Fecha adopción" required
-                        <?php if (isset($oldFecha)) echo " value={$oldFecha}" ?> />
+                        <?php if (isset($oldFecha)) echo "value='{$oldFecha}'" ?> >
 
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="razon">Razón de la adopción</label>
                     <input  class="form-control" type="text" name="razon" id="razon" placeholder="Razón de la adopción"
-                            required <?php if (isset($oldRazon)) echo " value={$oldRazon}" ?>/>
+                            required <?php if (isset($oldRazon)) echo " value='{$oldRazon}'" ?>>
 
                 </div>
             </fieldset>
