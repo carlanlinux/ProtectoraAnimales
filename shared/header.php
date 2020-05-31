@@ -50,9 +50,11 @@ if (!isset($_SESSION['username']) || is_null($_SESSION['username'])) {
             </div>
             <span class="navbar-text d-xl-inline-block"><?php if (isset($_SESSION['username'])) {
 
-                echo "Bienvenido ". $_SESSION['username'] . ". | <a href=" . WWW_ROOT . "/logout.php" . "> Cerrar Sesión</a>";
+
+                echo "<span class='mr-3'>Bienvenido ". $_SESSION['username'] . "</span>" ."|" ."<span class='ml-3'><a href=" . WWW_ROOT . "/logout.php" . ">Cerrar Sesión</a></span>";
                 }?>
-                </span>
+
+            </span>
             </div>
     </nav>
 </header>
