@@ -25,7 +25,7 @@ if (isset($_POST['idAnimal'])) {
     $razon = filter_var($_POST['razon'], FILTER_SANITIZE_STRING);
 
     //Creamos un nuevo objeto con estos datos que usaremos para actualizar la base de datos llamando a sus métodos
-    $adopcion = new Adopcion($idAdopcion,$idAnimal, $idUsuario, $fecha, $razon);
+    $adopcion = new Adopcion($idAnimal, $idUsuario, $fecha, $razon,$idAdopcion);
     $adopcion->actualizar();
     //Refrescamos la página para que se carguen los cambios, dejamos 1 segundos para que salte el mensaje de completado
     // con éxito la modificación

@@ -12,13 +12,13 @@ class Adopcion extends Crud
     private $conexion;
     const TABLA = "adopcion";
 
-    public function __construct ($id = null, $idAnimal = null, $idUsuario = null, $fecha = null, $razon = null) {
+    public function __construct ($idAnimal = null, $idUsuario = null, $fecha = null, $razon = null, $id = null) {
         $this->conexion = parent::__construct(self::TABLA);
-        $this->id = $id;
         $this->idAnimal = $idAnimal;
         $this->idUsuario = $idUsuario;
         $this->fecha = date('Y-m-d', strtotime($fecha));
         $this->razon = $razon;
+        $this->id = $id;
     }
 
     public function __set ($propiedad, $valor)
