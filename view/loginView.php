@@ -1,4 +1,4 @@
-
+<?php require ('../private/initialize.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

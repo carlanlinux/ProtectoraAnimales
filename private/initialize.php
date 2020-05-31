@@ -8,7 +8,7 @@
   // dirname() returns the path to the parent directory
   define("PRIVATE_PATH", dirname(__FILE__));
   define("PROJECT_PATH", dirname(PRIVATE_PATH));
-  define("PUBLIC_PATH", PROJECT_PATH . '/');
+  define("PUBLIC_PATH", PROJECT_PATH . '/ProtectoraAnimales');
   define("SHARED_PATH", PROJECT_PATH . '/shared');
   define("MODEL_PATH", PROJECT_PATH . '/model');
   define("CONTROLLER_PATH", PROJECT_PATH . '/controller');
@@ -17,15 +17,16 @@
   // * No hay que incluir el dominio
   // * Usar el mismo document root que el webserver
   // * Se podría hacer hardodeado con defines:
-  // define("WWW_ROOT", '/DWES/ProtectoraAnimales/public/');
+  // define("WWW_ROOT", '/DWES/ProtectoraAnimales/');
   // define("WWW_ROOT", '');
-  // * Lo ponemos de forma dinámica para que lo encuentre en la URL hasta /public
-  $public_end = strpos($_SERVER['SCRIPT_NAME'], '/') + 1;
+  // * Lo ponemos de forma dinámica para que lo encuentre en la URL hasta /protectora animales para los links
+  $public_end = strpos($_SERVER['SCRIPT_NAME'], '/ProtectoraAnimales') + 19;
   $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
   define("WWW_ROOT", $doc_root);
 
 
-require_once(CONTROLLER_PATH . '/loginController.php');
+// require(CONTROLLER_PATH . '/loginController.php');
+require_once('functions.php');
 
   // Load class definitions manually usando requieres por cada fichero
 

@@ -9,7 +9,7 @@ include_once ('../shared/header.php');
 <div id="myform">
     <ol>
     <li><a href="adopcionView.php">Adopciones</a></li>
-    <li><a href="adminView.php">Administradores</a></li>
+    <li><a href="./admins/adminView.php">Administradores</a></li>
     <li><a href="usuariosView.php">Usuarios</a></li>
     <li><a href="animalView.php">Animales</a></li>
     </ol>

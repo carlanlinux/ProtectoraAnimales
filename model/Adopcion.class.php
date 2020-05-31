@@ -73,7 +73,7 @@ class Adopcion extends Crud
 
     }
 
-    public function actualizar (array $args)
+    public function actualizar ()
     {
         //Cambiamos los datos del objeto en función de lo que nos llegue en el array asociativo de argumentos
         foreach ($args as $key=> $value){

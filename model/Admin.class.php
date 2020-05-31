@@ -5,7 +5,7 @@ include ('Crud.class.php');
 class Admin extends Crud
 {
     //Array que servirá para rellenar las propiedades de la clase con el método mágico set
-    private $username;
+    private $id;
     private $password;
     private $conexion;
     const TABLA = "admins";
@@ -39,11 +39,11 @@ class Admin extends Crud
     }
 
 
-    protected function crear ()
+    public function crear ()
     {
         try {
             //Usar el nombre del parámetro con :nombreTabla, la misma que la columna en la BD
-            $sql = "INSERT INTO " . self::TABLA . " (username, password) VALUES (:username, :password)";
+            $sql = "INSERT INTO " . self::TABLA . " (id, password) VALUES (:username, :password)";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion->prepare($sql);
             //Bind value para calculos y expresiones
@@ -51,7 +51,7 @@ class Admin extends Crud
             //Estos son string y ya usamos Param, cogemos la variable que queremos asignar e incluimos el tipo de datos con
             // una constante PDO para indicar si es INT o qué tipo: PDO::PARAM_INT
            $this->password = md5($this->password);
-            $stmt->bindParam(':username', $this->username, PDO::PARAM_STR);
+            $stmt->bindParam(':username', $this->id, PDO::PARAM_STR);
             $stmt->bindParam(':password', $this->password, PDO::PARAM_STR);
             //Ejecutamos la consulta preparada
             $affected = $stmt->execute();
@@ -70,32 +70,26 @@ class Admin extends Crud
 
     }
 
-    public function actualizar (array $args)
+    public function actualizar ()
     {
-        //Cambiamos los datos del objeto en función de lo que nos llegue en el array asociativo de argumentos
-        foreach ($args as $key=> $value){
-            if (property_exists(__CLASS__, $key)) {
-                 $this->$key = $value;
-            }
-        }
-
+        $this->password = md5($this->password);
         try {
             //Query a la base de datos para actualizar
-            $sql = "UPDATE " . self::TABLA . " SET username = :username, password= :password LIMIT 1";
+            $sql = "UPDATE " . self::TABLA . " SET id = :id, password = :password LIMIT 1";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion->prepare($sql);
             //Bind value para calculos y expresiones
             //$stmt->bindValue(':make', '%' . $_GET['make'] . '%');
             //Estos son string y ya usamos Param, cogemos la variable que queremos asignar e incluimos el tipo de datos con
             // una constante PDO para indicar si es INT o qué tipo: PDO::PARAM_INT
-            $stmt->bindParam(':username', $this->username, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $this->id, PDO::PARAM_STR);
             $stmt->bindParam(':password', $this->password, PDO::PARAM_STR);
 
             //Ejecutamos la consulta preparada
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . "Administrador {$this->adminname} mofidicado con éxito";
+                echo $affected . "Administrador {$this->id} mofidicado con éxito";
             } else {
                 echo "Error al modificar Administrador";
             }
@@ -111,7 +105,7 @@ class Admin extends Crud
     public function obtenerPorUsername($username) {
         try {
             //Usar el nombre del parámetro con :username, la misma que la columna en la BD
-            $sql = "SELECT * FROM " . self::TABLA . " WHERE username = :username";
+            $sql = "SELECT * FROM " . self::TABLA . " WHERE id = :username";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion ->prepare($sql);
             //Bind value para calculos y expresiones ('%' si quiero usar wildcard characters por delante o por detrás)
@@ -139,6 +133,45 @@ class Admin extends Crud
             return $error = $e->getMessage();
         }
     }
+
+/*    //Actualizar usando argumentos
+    public function actualizar (array $args)
+    {
+        //Cambiamos los datos del objeto en función de lo que nos llegue en el array asociativo de argumentos
+        foreach ($args as $key=> $value){
+            if (property_exists(__CLASS__, $key)) {
+                $this->$key = $value;
+            }
+        }
+
+        try {
+            //Query a la base de datos para actualizar
+            $sql = "UPDATE " . self::TABLA . " SET id = :id, password = :password LIMIT 1";
+            //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
+            $stmt = $this->conexion->prepare($sql);
+            //Bind value para calculos y expresiones
+            //$stmt->bindValue(':make', '%' . $_GET['make'] . '%');
+            //Estos son string y ya usamos Param, cogemos la variable que queremos asignar e incluimos el tipo de datos con
+            // una constante PDO para indicar si es INT o qué tipo: PDO::PARAM_INT
+            $stmt->bindParam(':id', $this->username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $this->password, PDO::PARAM_STR);
+
+            //Ejecutamos la consulta preparada
+            $affected = $stmt->execute();
+            if ($affected) {
+                //Devuelve el último Id que se ha insertado
+                echo $affected . "Administrador {$this->adminname} mofidicado con éxito";
+            } else {
+                echo "Error al modificar Administrador";
+            }
+        } catch (Exception $e) {
+            return $error = $e->getMessage();
+        }
+        if (isset($error)) {
+            return $error;
+
+        }
+    }*/
 
 
 

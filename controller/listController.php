@@ -1,5 +1,10 @@
 <?php
 //require('/model/Admin.class.php');
+if (isset($_GET['removeItem'])){
+    $id = filter_var($_GET['removeItem']);
+    $tipoClase->borrar($id);
+}
+
 
 //Numero columnas
 define('NUMCOLUMNAS', 1);
@@ -28,8 +33,8 @@ if (isset($_GET["pagina"])) {
 $registros = $tipoClase->obtienerPaginado(($nPagina - 1) * ELEM_PAGINA , ELEM_PAGINA);
 
 //Comenzamos el HTML
-$html = "<h3>Listado paginado</h3>";
-$html .= "<br/><hr><br/>";
+
+$html = "<br/><hr><br/>";
 //Creamos un HTML vacío donde irán los datos que recogamos que sumaremos al de arriba cuando acabe el bucle
 $htmlDatos = "";
 
@@ -37,9 +42,13 @@ $htmlDatos = "";
 if (sizeof($registros) > 0) {
     $html .= "<section><table>";
     //recupera cada fila como un array asociativo
-    $html .= "<tr><th>ADMINISTRADOR</th><th>EDITAR</th><th>BORRAR</th></tr>";
-   foreach ($registros as $registro) {
-       $htmlDatos .= "<tr><td> " . $registro->username . "</td><td>EDITAR</td><td>BORRAR</td></tr>";
+    $html .= "<tr><th>ADMINISTRADOR</th><th></th><th></th></tr>";
+
+    foreach ($registros as $registro) {
+        $item = $registro->id;
+        $editar = "<a class='btn btn-primary' href='adminEdit.php?item=". $item . "'>Editar</a>";
+        $borrar = "<a class='btn btn-danger' href='?removeItem=". $item . "'>Borrar</a>";
+        $htmlDatos .= "<tr><td> " . $item . "</td><td>" . $editar ."</td><td> ". $borrar . "</td></tr>";
    }
    $html .= $htmlDatos;
    $html .= "</table>";
@@ -85,8 +94,8 @@ if (sizeof($registros) > 0) {
 }
 $html .= "<br/><hr><br/>";
 /* devolvemos la respuesta*/
-echo $html;
 
+echo $html;
 
 ?>
 

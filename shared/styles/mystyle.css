@@ -426,4 +426,25 @@ table#inventory tr td, table#inventory tr th {
 	padding: 3px;
 }
 
+/********************   PAGINADO AJAX ****************************/
+table#datos {
+
+	margin: auto;
+	width: 100%;
+}
+
+section#datos  {
+	width: 80%;
+	margin: auto;
+}
+
+ul#datos  {
+	width: 50%;
+	margin: auto;
+}
+
+h6{
+	text-align: end;
+}
+
 

@@ -20,12 +20,12 @@ require_once ('shared/header.php');
 
 
 if (isset($_SESSION['username']) && (!is_null($_SESSION['username']))) {
-    //Me abre la vista del tablero
-    header("Location: " . "./view/mainView.php" );
+    //Me abre la vista principal
+    redirect_to(url_for('/view/mainView.php'));
 }
 else {
     //Mostramos la página del formulario de registro de jugador
-    require_once "/view/loginView.php";
+    redirect_to(url_for('/view/loginView.php'));
 }
 
 require_once ('shared/footer.php');

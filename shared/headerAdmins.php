@@ -1,4 +1,4 @@
-<?php// require ('../private/initialize.php');?>
+<?php require ('../../private/initialize.php');?>
 <!doctype html>
 <head>
     <meta charset="utf-8">
@@ -47,6 +47,6 @@
                     echo 'Bienvenido '. $_SESSION["username"] . '. | <a href="../logout.php"' . " </a> Cerrar Sesión</a>";
                 }
                 ?></span>
-            </div>
+        </div>
     </nav>
 </header>
