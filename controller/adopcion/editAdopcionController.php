@@ -28,7 +28,7 @@ if (isset($_POST['idAnimal'])) {
     $adopcion = new Adopcion($idAnimal, $idUsuario, $fecha, $razon,$idAdopcion);
     $adopcion->actualizar();
     //Refrescamos la página para que se carguen los cambios, dejamos 1 segundos para que salte el mensaje de completado
-    // con éxito la modificación
+    // con éxito la modificación al segundo de mostrar el mesanje
     header('Refresh: 1');
 
 

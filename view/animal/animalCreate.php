@@ -3,7 +3,7 @@ require_once('../../private/initialize.php');
 include_once ('../../shared/header.php');
 //Me creo objeto admin Auxiliar para las queries
 
-include_once('../../controller/adopcion/createAdopcionController.php');
+include_once('../../controller/animal/createAnimalController.php');
 
 ?>
     <div class="container mt-3">
@@ -13,31 +13,46 @@ include_once('../../controller/adopcion/createAdopcionController.php');
                 <span id="formerror" class="error"><?php if (isset($error)) echo $error?></span>
 
                 <div class="form-group">
-                    <label class="form-control-label" for="idAnimal">ID del Animal</label>
-                    <input class="form-control" type="text" name="idAnimal" id="idAnimal" title="ID del animal" required
+                    <label class="form-control-label" for="nombre">Nombre</label>
+                    <input  class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre del animal"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="especie">Especie</label>
+                    <input class="form-control" type="text" name="especie" id="especie" title="Especie" required
                         <?php if (!isset($errorPass)) echo " autofocus " ?>
-                           placeholder="ID del animal" <?php if (isset($errorPass)) echo " value={$errorPass}" ?> />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="idUsuario">ID del Usuario</label>
-                    <input  class="form-control" type="text" name="idUsuario" id="idUsuario" placeholder="ID del Usuario"
-                            required <?php if (isset($errorPass)) echo " autofocus" ?> />
+                           placeholder="Especie del animal"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="fecha">Fecha de adopción</label>
-                    <input  class="form-control" type="date" name="fecha" id="fecha" placeholder="Fecha adopción" required/>
+                    <label class="form-control-label" for="raza">Fecha de adopción</label>
+                    <input  class="form-control" type="text" name="raza" id="raza" placeholder="Raza" required/>
+
+                </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="genero">Genero</label>
+                        <select  class="form-control" id="genero" name="genero" required>
+                            <option disabled selected>Escoger género</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
+                        </select>
+                    </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="color">Color</label>
+                    <input  class="form-control" type="text" name="color" id="color" placeholder="Color" required/>
 
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="razon">Razón de la adopción</label>
-                    <input  class="form-control" type="text" name="razon" id="razon" placeholder="Razón de la adopción" required/>
+                    <label class="form-control-label" for="edad">Color</label>
+                    <input  class="form-control" type="text" name="edad" id="edad" placeholder="Edad" required/>
 
                 </div>
+
             </fieldset>
             <div class="btn-group mb-3">
-                <input type="submit" class="btn btn-dark"  id="enviar" value="Crear Adopción">
-                <a class="btn btn-dark"  href="adopcionView.php">Volver</a>
+                <input type="submit" class="btn btn-dark"  id="enviar" value="Alta nuevo Animal">
+                <a class="btn btn-dark"  href="animalView.php">Volver</a>
             </div>
         </form>
     </div>

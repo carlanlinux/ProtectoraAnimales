@@ -10,9 +10,9 @@ if (isset($_POST['nombre'])) {
 
 
 
-    $animal = new Animal($nombre,$especie, $raza, $genero,$color,$edad);
-    $animal->crear();
-}
+        $animal = new Animal($nombre,$especie, $raza, $genero,$color,$edad);
+        $animal->crear();
+    }
 
 ?>
 

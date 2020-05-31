@@ -72,16 +72,12 @@ class Adopcion extends Crud
         }
         if (isset($error)) {
             return $error;
-        } else{
-            //Devuelve el último Id que se ha insertado
-            return $affected . " row inserted with ID " . $this->id = $this->conexion->lastInsertId();
         }
 
     }
 
     public function actualizar ()
     {
-
         try {
             //Query a la base de datos para actualizar
             $sql = "UPDATE " . self::TABLA . " SET idAnimal = :idAnimal, idUsuario = :idUsuario, fecha = :fecha, razon = :razon WHERE id = :id LIMIT 1";

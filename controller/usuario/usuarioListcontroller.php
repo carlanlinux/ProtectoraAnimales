@@ -42,14 +42,14 @@ $htmlDatos = "";
 if (sizeof($registros) > 0) {
     $html .= "<section><table>";
     //recupera cada fila como un array asociativo
-    $html .= "<tr><th>ID</th><th>IdAninam</th><th>IdUsuario</th><th>Fecha</th><th>Razón</th><th></th><th></th></tr>";
+    $html .= "<tr><th>ID</th><th>Nombre</th><th>Especie</th><th>Raza</th><th>Género</th><th>Color</th><th>Edad</th><th></th><th></th></tr>";
 
     foreach ($registros as $registro) {
         $item = $registro->id;
         $editar = "<a class='btn btn-dark mr-1' href='animalEdit.php?item=". $item . "'>Editar</a>";
         $borrar = "<a class='btn btn-danger' href='?removeItem=". $item . "'>Borrar</a>";
-        $htmlDatos .= "<tr><td> " . $item . "</td><td> $registro->idAnimal </td><td> $registro->idUsuario</td><td>$registro->fecha</td>
-            <td> $registro->razon </td><td>" . $editar ."</td><td> ". $borrar . "</td></tr>";
+        $htmlDatos .= "<tr><td> " . $item . "</td><td> $registro->nombre </td><td> $registro->especie</td><td>$registro->raza</td>
+            <td> $registro->genero </td><td> $registro->color </td><td> $registro->edad </td><td>" . $editar ."</td><td> ". $borrar . "</td></tr>";
     }
     $html .= $htmlDatos;
     $html .= "</table>";

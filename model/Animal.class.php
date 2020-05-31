@@ -13,7 +13,7 @@ class Animal extends Crud
     private $conexion;
     const TABLA = "animal";
 
-    public function __construct ($nombre, $especie, $raza, $genero, $color, int $edad)
+    public function __construct ($nombre = null, $especie = null, $raza = null, $genero = null, $color=null, $edad=null, $id =null)
     {
         $this->conexion = parent::__construct(Animal::TABLA);
         $this->nombre = $nombre;
@@ -22,7 +22,7 @@ class Animal extends Crud
         $this->genero = $genero;
         $this->color = $color;
         $this->edad = $edad;
-        $this->crear();
+        $this->id = $id;
     }
 
     public function __set ($propiedad, $valor)
@@ -47,7 +47,7 @@ class Animal extends Crud
     }
 
 
-    protected function crear () {
+    public function crear () {
             try {
                 //Usar el nombre del parámetro con :nombreTabla, la misma que la columna en la BD
                 $sql = "INSERT INTO ". self::TABLA ." (nombre, especie, raza, genero, color, edad) VALUES (:nombre, :especie, :raza, :genero, :color, :edad)";
@@ -67,9 +67,9 @@ class Animal extends Crud
                 $affected = $stmt->execute();
                 if ($affected) {
                     //Devuelve el último Id que se ha insertado
-                    echo $affected . " row inserted with ID " . $this->id = $this->conexion->lastInsertId();
+                    echo "<h6 class='text-success mt-3'>". $affected . " Animal guardado con ID " . $this->id = $this->conexion->lastInsertId() . "</h6>";
                 } else {
-                    echo "Error al introducir nuevo animal";
+                    echo "<h6 class='text-danger mt-3'>Error al crear nueva adopción</h6>";
                 }
             } catch (Exception $e) {
                 return $error = $e->getMessage();
@@ -81,16 +81,9 @@ class Animal extends Crud
 
     public function actualizar ()
     {
-        //Cambiamos los datos del objeto en función de lo que nos llegue en el array asociativo de argumentos
-        foreach ($args as $key=> $value){
-            if (property_exists(__CLASS__, $key)) {
-                $this->$key = $value;
-            }
-        }
-
         try {
             //Query a la base de datos para actualizar
-            $sql = "UPDATE " . self::TABLA . " SET nombre = :nombre, especie= :especie, raza = :raza, genero = :genero, color = :color edad = :edad WHERE id = :id LIMIT 1";
+            $sql = "UPDATE " . self::TABLA . " SET nombre = :nombre, especie= :especie, raza = :raza, genero = :genero, color = :color, edad = :edad WHERE id = :id LIMIT 1";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion->prepare($sql);
             //Bind value para calculos y expresiones
@@ -103,15 +96,15 @@ class Animal extends Crud
             $stmt->bindParam(':raza', $this->raza, PDO::PARAM_STR);
             $stmt->bindParam(':genero', $this->genero, PDO::PARAM_STR);
             $stmt->bindParam(':color', $this->color, PDO::PARAM_STR);
-            $stmt->bindParam(':edad', $this->edad, PDO::PARAM_STR);
+            $stmt->bindParam(':edad', $this->edad, PDO::PARAM_INT);
 
             //Ejecutamos la consulta preparada
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . "Usuario {$this->nombre} mofidicado con éxito";
+                echo "<h6 class='text-success mt-3'>" . $affected . " Animal {$this->id} mofidicado con éxito</h6>";
             } else {
-                echo "Error al modificar usuario";
+                echo  "<h6 class='text-danger mt-3'>Error al modificar Animal</h6>";
             }
         } catch (Exception $e) {
             return $error = $e->getMessage();
