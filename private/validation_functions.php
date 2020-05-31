@@ -103,23 +103,6 @@ function has_valid_email_format ($value)
     return preg_match($email_regex, $value) === 1;
 }
 
-// has_unique_username('johnqpublic')
-// * Validates uniqueness of admins.username comprobando también el ID, puede que el username sea otro pero
-// ID siempre tiene que ser el mismo
-// * For new records, provide only the username.
-// * For existing records, provide current ID as second argument
-//   has_unique_username('johnqpublic', 4)
-function has_unique_username ($username, $current_id = "0")
-{
-    $admin = Admin::find_by_username($username);
-    if ($admin === false || $admin->id == $current_id) {
-        //Is unique
-        return true;
-    } else {
-        //No es único
-        return false;
 
-    }
-}
 
 ?>

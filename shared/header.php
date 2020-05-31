@@ -27,7 +27,13 @@
 
 <body>
 <?php if (session_status() == PHP_SESSION_NONE)
-    session_start();?>
+    session_start();
+//Si llega a esta página y no tiene sesión o la session es nula, le mandamos al login para que incie sesión
+if (!isset($_SESSION['username']) || is_null($_SESSION['username'])) {
+    redirect_to(url_for("/view/loginView.php"));
+}
+
+?>
 
 <header>
     <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
