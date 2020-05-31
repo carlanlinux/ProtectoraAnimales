@@ -1,6 +1,6 @@
 <?php
+include_once ('./model/Admin.class.php');
 
-require_once ('model/Admin.class.php');
 
 
 if (isset($_POST['username'])) {
@@ -31,7 +31,12 @@ if (isset($_POST['username'])) {
     // principal. En caso contrario mostramos errores.
     if ($admin instanceof Admin) {
         if ($admin->password === $password) {
+            if (session_status() == PHP_SESSION_NONE)
+                session_start();
             $_SESSION['username'] = $username;
+            header("Location: " . "./view/mainView.php" );
+            exit;
+
 
         } else{
             $error = "Contrasñea incorrecta, intentelo de nuevo";

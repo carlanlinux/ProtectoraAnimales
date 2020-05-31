@@ -9,7 +9,9 @@
   define("PRIVATE_PATH", dirname(__FILE__));
   define("PROJECT_PATH", dirname(PRIVATE_PATH));
   define("PUBLIC_PATH", PROJECT_PATH . '/');
-  define("SHARED_PATH", PRIVATE_PATH . '/shared');
+  define("SHARED_PATH", PROJECT_PATH . '/shared');
+  define("MODEL_PATH", PROJECT_PATH . '/model');
+  define("CONTROLLER_PATH", PROJECT_PATH . '/controller');
 
   // Asignamos la raiz de la URL del sitio a la constante PHP
   // * No hay que incluir el dominio
@@ -21,6 +23,9 @@
   $public_end = strpos($_SERVER['SCRIPT_NAME'], '/') + 1;
   $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
   define("WWW_ROOT", $doc_root);
+
+
+require_once(CONTROLLER_PATH . '/loginController.php');
 
   // Load class definitions manually usando requieres por cada fichero
 
@@ -37,7 +42,7 @@ foreach (glob('classes/*.class.php') as $fileClass) {
 function myAutoload($class){
   if (preg_match("/\A\w+\Z/",$class)) {
     //Ponemos el include de la localización
-    include './model/classes/' . $class . ".class.php";
+    include PROJECT_PATH.'/model/' . $class . ".class.php";
   }
 }
 

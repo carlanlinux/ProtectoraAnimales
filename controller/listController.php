@@ -1,5 +1,6 @@
 <?php
-require_once ('model/Admin.class.php');
+//require('/model/Admin.class.php');
+
 //Numero columnas
 define('NUMCOLUMNAS', 1);
 //Numero de resultados por pagina
