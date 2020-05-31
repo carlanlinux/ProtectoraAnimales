@@ -5,4 +5,5 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
     session_destroy();
 }
-header("Location: " . "index.php" );
+//Redirigir a index.php, al no tener sesión mandará al login
+header("Location: " . "index.php") ;
