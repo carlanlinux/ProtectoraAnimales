@@ -32,7 +32,7 @@
 <header>
     <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
         <div class="container">
-            <a href="#" class="navbar-brand d-sm-inline-block">
+            <a href="<?php echo WWW_ROOT . "/index.php"?>" class="navbar-brand d-sm-inline-block">
                 <img src="<?php echo SHARED_PATH . "/images/wisdompetlogo.svg"?>" style="width: 40px" alt="wisdom pet logo">
             </a>
             <div class="navbar-nav">
