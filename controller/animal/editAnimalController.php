@@ -31,8 +31,8 @@ if (isset($_POST['id'])) {
     $edad = filter_var($_POST['edad']);
 
     //Creamos un nuevo objeto con estos datos
-    $adopcion = new Animal($nombre,$especie, $raza, $genero,$color,$edad, $id);
-    $adopcion->actualizar();
+    $animal = new Animal($nombre,$especie, $raza, $genero,$color,$edad, $id);
+    $animal->actualizar();
     //Refrescamos la página para que se carguen los cambios, dejamos 1 segundos para que salte el mensaje de completado
     // con éxito la modificación al segundo de mostrar el mesanje
     header('Refresh: 1');

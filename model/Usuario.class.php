@@ -13,7 +13,7 @@ class Usuario extends Crud
     private $conexion;
     const TABLA = "usuarios";
 
-    public function __construct ($nombre, $apellido, $sexo, $direccion, $telefono)
+    public function __construct ($nombre=null, $apellido=null, $sexo=null, $direccion=null, $telefono=null, $id = null)
     {
         $this->conexion = parent::__construct(self::TABLA);
         $this->nombre = $nombre;
@@ -21,7 +21,7 @@ class Usuario extends Crud
         $this->sexo = $sexo;
         $this->direccion = $direccion;
         $this->telefono = $telefono;
-        $this->crear();
+        $this->id = $id;
     }
 
     public function __set ($propiedad, $valor)
@@ -46,7 +46,7 @@ class Usuario extends Crud
     }
 
 
-    protected function crear ()
+    public function crear ()
     {
         try {
             //Usar el nombre del parámetro con :nombreTabla, la misma que la columna en la BD
@@ -67,9 +67,9 @@ class Usuario extends Crud
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . " row inserted with ID " . $this->id = $this->conexion->lastInsertId();
+                echo "<h6 class='text-success mt-3'>". $affected . " Usuario guardado con ID " . $this->id = $this->conexion->lastInsertId() . "</h6>";
             } else {
-                echo "Error al introducir nuevo animal";
+                echo "<h6 class='text-danger mt-3'>Error al crear nuevo usuario</h6>";
             }
         } catch (Exception $e) {
             return $error = $e->getMessage();
@@ -82,16 +82,9 @@ class Usuario extends Crud
 
     public function actualizar ()
     {
-        //Cambiamos los datos del objeto en función de lo que nos llegue en el array asociativo de argumentos
-        foreach ($args as $key=> $value){
-            if (property_exists(__CLASS__, $key)) {
-                 $this->$key = $value;
-            }
-        }
-
         try {
             //Query a la base de datos para actualizar
-            $sql = "UPDATE " . self::TABLA . " SET nombre = :nombre, apellido= :apellido, sexo = :sexo, direccion = :direccion, telefono = :telefono WHERE id = :id LIMIT 1";
+            $sql = "UPDATE " . self::TABLA . " SET nombre = :nombre, apellido = :apellido, sexo = :sexo, direccion = :direccion, telefono = :telefono WHERE id = :id LIMIT 1";
             //Creamos la consulta preparada desde el objeto de conexión de base de datos y le pasamos el SQL
             $stmt = $this->conexion->prepare($sql);
             //Bind value para calculos y expresiones
@@ -109,9 +102,9 @@ class Usuario extends Crud
             $affected = $stmt->execute();
             if ($affected) {
                 //Devuelve el último Id que se ha insertado
-                echo $affected . "Usuario {$this->nombre} mofidicado con éxito";
+                echo "<h6 class='text-success mt-3'>" . $affected . " Usuario {$this->id} mofidicado con éxito</h6>";
             } else {
-                echo "Error al modificar usuario";
+                echo  "<h6 class='text-danger mt-3'>Error al modificar Usuario</h6>";
             }
         } catch (Exception $e) {
             return $error = $e->getMessage();

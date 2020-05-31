@@ -69,7 +69,7 @@ class Animal extends Crud
                     //Devuelve el último Id que se ha insertado
                     echo "<h6 class='text-success mt-3'>". $affected . " Animal guardado con ID " . $this->id = $this->conexion->lastInsertId() . "</h6>";
                 } else {
-                    echo "<h6 class='text-danger mt-3'>Error al crear nueva adopción</h6>";
+                    echo "<h6 class='text-danger mt-3'>Error al crear nuevo usuario</h6>";
                 }
             } catch (Exception $e) {
                 return $error = $e->getMessage();

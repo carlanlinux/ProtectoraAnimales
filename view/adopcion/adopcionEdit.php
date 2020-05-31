@@ -5,7 +5,7 @@ include_once('../../controller/adopcion/editAdopcionController.php');
 //Me creo objeto admin Auxiliar para las queries
 ?>
     <div class="container mt-3">
-        <h2>Nueva Adopción</h2>
+        <h2>Editar Adopción</h2>
         <form  id="myform" name="login" action="" method="post">
             <fieldset class="form-group">
                 <span id="formerror" class="error"><?php if (isset($error)) echo $error?></span>

@@ -5,7 +5,7 @@ include_once ('../../model/Adopcion.class.php');
 include_once ('../../model/Animal.class.php');
 include_once ('../../model/Usuario.class.php');*/
 //Me creo objeto admin Auxiliar para las queries
-if (!isset($tipoClase)) $tipoClase = new Adopcion();
+if (!isset($tipoClase)) $tipoClase = new Usuario();
 
 
 ?>
@@ -34,11 +34,11 @@ if (!isset($tipoClase)) $tipoClase = new Adopcion();
         <div class="container mt-3">
             <div class="btn-group mb-3">
                 <a class="btn btn-dark p-1 m-0" href="<?php echo VIEW_PATH . "/mainView.php"?>">Atrás</a>
-                <a class="btn btn-dark p-1 m-0" href="adopcionCreate.php">Nueva Adopción</a>
+                <a class="btn btn-dark p-1 m-0" href="usuarioCreate.php">Nuevo usuario</a>
             </div>
-            <h3>Listado paginado de Adopciones</h3>
+            <h3>Listado paginado de Usuarios</h3>
         </div>
-    <?php include_once('../../controller/adopcion/adopcionListcontroller.php');?>
+    <?php include_once('../../controller/usuario/usuarioListcontroller.php');?>
     <?php include_once ('../../shared/footer.php'); ?>
 </div>
 

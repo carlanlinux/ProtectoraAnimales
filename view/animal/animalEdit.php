@@ -63,7 +63,7 @@ include_once('../../controller/animal/editAnimalController.php');
             </fieldset>
             <div class="btn-group mb-3">
                 <input type="submit" class="btn btn-dark"  id="enviar" value="Editar">
-                <a class="btn btn-dark"  href="animalnView.php">Volver</a>
+                <a class="btn btn-dark"  href="animalView.php">Volver</a>
             </div>
         </form>
     </div>

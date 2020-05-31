@@ -14,17 +14,17 @@ include_once('../../controller/admin/editAdminController.php');
                     <label class="form-control-label" for="usuario">Usuario</label>
                     <input class="form-control" type="text" name="username" id="usuario" title="Nombre de usuario"
                         <?php if (!isset($errorPass)) echo " autofocus " ?>
-                           placeholder="Nombre de usuario" <?php if (isset($oldUsername)) echo " value='{$oldUsername}'" ?> />
+                           placeholder="Nombre de usuario" <?php if (isset($oldUsername)) echo " value='{$oldUsername}'" ?> >
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" for="password">Contraseña</label>
                     <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña"
-                    <?php if (isset($errorPass)) echo " autofocus" ?> /
+                    <?php if (isset($errorPass)) echo " autofocus" ?> >
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="confirmPassword">Repetir contraseña</label>
-                    <input  class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Repetir Contraseña"/>
+                    <input  class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Repetir Contraseña">
                     <small class="form-text text-muted" id="emailHelp">Las contraseñas han de ser iguales</small>
                 </div>
             </fieldset>

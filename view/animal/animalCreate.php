@@ -15,17 +15,17 @@ include_once('../../controller/animal/createAnimalController.php');
                 <div class="form-group">
                     <label class="form-control-label" for="nombre">Nombre</label>
                     <input  class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre del animal"
-                            required/>
+                            required>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="especie">Especie</label>
                     <input class="form-control" type="text" name="especie" id="especie" title="Especie" required
                         <?php if (!isset($errorPass)) echo " autofocus " ?>
-                           placeholder="Especie del animal"/>
+                           placeholder="Especie del animal">
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="raza">Fecha de adopción</label>
-                    <input  class="form-control" type="text" name="raza" id="raza" placeholder="Raza" required/>
+                    <input  class="form-control" type="text" name="raza" id="raza" placeholder="Raza" required>
 
                 </div>
 
@@ -40,12 +40,12 @@ include_once('../../controller/animal/createAnimalController.php');
 
                 <div class="form-group">
                     <label class="form-control-label" for="color">Color</label>
-                    <input  class="form-control" type="text" name="color" id="color" placeholder="Color" required/>
+                    <input  class="form-control" type="text" name="color" id="color" placeholder="Color" required>
 
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="edad">Color</label>
-                    <input  class="form-control" type="text" name="edad" id="edad" placeholder="Edad" required/>
+                    <input  class="form-control" type="text" name="edad" id="edad" placeholder="Edad" required>
 
                 </div>
 
