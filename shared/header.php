@@ -37,7 +37,7 @@
             </a>
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="<?php echo WWW_ROOT . "/index.php"?>"">Home</a>
-                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/adopcion/animalView.php"?>">Adopciones</a>
+                <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/adopcion/adopcionView.php"?>">Adopciones</a>
                 <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/admin/adminView.php"?>">Administradores</a>
                 <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/usuario/usuarioView.php"?>">Usuarios</a>
                 <a class="nav-item nav-link" href="<?php echo VIEW_PATH . "/animal/animalView.php"?>" >Animales</a>
