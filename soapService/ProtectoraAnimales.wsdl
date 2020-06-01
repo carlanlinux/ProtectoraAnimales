@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://localhost:8888/ProtectoraAnimales/soapService/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://localhost:8888/ProtectoraAnimales/soapService/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://localhost:8888/ProtectoraAnimales/soapService/"/>
+    </wsdl:types>
+    <wsdl:message name="obtieneDeIDAnimalRequest">
+        <wsdl:part name="idAnimal" type="xsd:int"/>
+    </wsdl:message>
+    <wsdl:message name="obtieneDeIDAnimalResponse">
+        <wsdl:part name="obtieneDeIDAnimalReturn" type="xsd:string"/>
+    </wsdl:message>
+    <wsdl:portType name="FuncionesSoapPortType">
+        <wsdl:operation name="obtieneDeIDAnimal">
+            <wsdl:documentation>Método que devuelve si el animal ha sido adoptado en un string.</wsdl:documentation>
+            <wsdl:input message="tns:obtieneDeIDAnimalRequest"/>
+            <wsdl:output message="tns:obtieneDeIDAnimalResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="FuncionesSoapBinding" type="tns:FuncionesSoapPortType">
+        <soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc"
+                          transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="obtieneDeIDAnimal">
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/"
+                                soapAction="http://localhost:8888/ProtectoraAnimales/soapService/servicio.php?method=obtieneDeIDAnimal"
+                                style="rpc"/>
+            <wsdl:input>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded"
+                               encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="FuncionesSoap">
+        <wsdl:documentation/>
+        <wsdl:port name="FuncionesSoapPort" binding="tns:FuncionesSoapBinding">
+            <soap-env:address location="http://localhost:8888/ProtectoraAnimales/soapService/servicio.php"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
